@@ -1,0 +1,49 @@
+//NEURON
+//Connects 15 comp pyramidal cell into architecture of Hajós et al., 2004
+//replacing 256 compartment PC
+//Tibin John
+//August 26, 2014
+
+//graphical interface
+load_file("nrngui.hoc")
+
+
+print("Loading files...")
+
+load_file("globalParameters.hoc")
+load_file("msgabaCellTemplate.hoc")
+load_file("basketCellTemplate.hoc")
+load_file("olmCellTemplate.hoc")
+load_file("pyrCellTemplate.hoc")
+
+
+/*Assign network parameters*/
+
+//cell numbers
+numMsgCells = 50
+numOlmCells = 50
+numBCells = 100
+numPCells = 8
+
+//intra-population connectivity
+bConnProb  = 0.6
+msgConnProb = 0.2
+bGmax = 0.1		//
+msgGmax = 0.2		//
+
+//injection currents
+bInj = 1.4 		//microAmp/cm^2
+msgInj = 2.2 		//microAmp/cm^2
+pyrInj=6e-10 		//Amp
+
+
+//inter-population connectivity
+strdef olmPyrComp = ""		//pyr compartment innervated by OLM cells
+strdef bPyrComp = "soma"	//pyr compartment innervated by basket cells
+
+bToPyrConv = 15			//Number of __ cells innervating one ___ cell 
+pyrToBConv = 4
+olmToBDiv = 15
+
+
+
